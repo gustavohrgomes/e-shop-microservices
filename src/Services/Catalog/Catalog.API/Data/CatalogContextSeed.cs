@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Catalog.API.Data
 {
-    internal class CatalogContextSeed
+    public class CatalogContextSeed
     {
         public static void SeedData(IMongoCollection<Product> productCollection)
         {
