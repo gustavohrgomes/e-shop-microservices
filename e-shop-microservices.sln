@@ -39,7 +39,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ApiGateways", "ApiGateways"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcelotApiGw", "src\ApiGateways\OcelotApiGw\OcelotApiGw.csproj", "{22256CEE-D53C-48C6-ADF6-0FC6AEBD838C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shopping.Aggregator", "src\ApiGateways\Shopping.Aggregator\Shopping.Aggregator.csproj", "{CCB1B089-5445-4164-B15A-12E6FC945771}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shopping.Aggregator", "src\ApiGateways\Shopping.Aggregator\Shopping.Aggregator.csproj", "{CCB1B089-5445-4164-B15A-12E6FC945771}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApps", "WebApps", "{309D12B3-10FC-45EA-874D-5DFBD5BBC016}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspnetRunBasics", "src\WebApps\AspnetRunBasics\AspnetRunBasics.csproj", "{43A8AA32-849B-465B-8625-47608DB00BA1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -195,6 +199,18 @@ Global
 		{CCB1B089-5445-4164-B15A-12E6FC945771}.Release|x64.Build.0 = Release|Any CPU
 		{CCB1B089-5445-4164-B15A-12E6FC945771}.Release|x86.ActiveCfg = Release|Any CPU
 		{CCB1B089-5445-4164-B15A-12E6FC945771}.Release|x86.Build.0 = Release|Any CPU
+		{43A8AA32-849B-465B-8625-47608DB00BA1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43A8AA32-849B-465B-8625-47608DB00BA1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43A8AA32-849B-465B-8625-47608DB00BA1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{43A8AA32-849B-465B-8625-47608DB00BA1}.Debug|x64.Build.0 = Debug|Any CPU
+		{43A8AA32-849B-465B-8625-47608DB00BA1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{43A8AA32-849B-465B-8625-47608DB00BA1}.Debug|x86.Build.0 = Debug|Any CPU
+		{43A8AA32-849B-465B-8625-47608DB00BA1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43A8AA32-849B-465B-8625-47608DB00BA1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43A8AA32-849B-465B-8625-47608DB00BA1}.Release|x64.ActiveCfg = Release|Any CPU
+		{43A8AA32-849B-465B-8625-47608DB00BA1}.Release|x64.Build.0 = Release|Any CPU
+		{43A8AA32-849B-465B-8625-47608DB00BA1}.Release|x86.ActiveCfg = Release|Any CPU
+		{43A8AA32-849B-465B-8625-47608DB00BA1}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -215,6 +231,7 @@ Global
 		{D63876CD-C0A0-42DF-A050-4BAD7F22DC85} = {175A40F3-3D66-447C-89B5-1FE410E1B95B}
 		{22256CEE-D53C-48C6-ADF6-0FC6AEBD838C} = {B8A093FE-0F04-4093-8720-AA536F66A21E}
 		{CCB1B089-5445-4164-B15A-12E6FC945771} = {B8A093FE-0F04-4093-8720-AA536F66A21E}
+		{43A8AA32-849B-465B-8625-47608DB00BA1} = {309D12B3-10FC-45EA-874D-5DFBD5BBC016}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8A64EB51-A2AA-43AE-BDC0-17F43F866AC9}
