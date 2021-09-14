@@ -145,7 +145,6 @@ services:
     ports:
       - "8005:80"
 
-
   aspnetrunbasics:
     container_name: aspnetrunbasics
     environment:
@@ -159,3 +158,31 @@ services:
       - ordering.api
     ports:
       - "8006:80"
+
+  elasticsearch:
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - http.host=0.0.0.0
+      - transport.host=127.0.0.1
+      - network.host=0.0.0.0
+      - cluster.name="elastic_stack_logging"
+      - node.name="elastic_stack_logging_data"
+      - discovery.zen.minimum_master_nodes=1
+      - http.cors.enabled=true
+      - http.cors.allow-origin="*"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+
+  kibana:
+    container_name: kibana
+    environment:
+      - ELASTICSEARCH_URL=http://localhost:9200
+    depends_on:
+      - elasticsearch
+    ports:
+      - "5601:5601" 
