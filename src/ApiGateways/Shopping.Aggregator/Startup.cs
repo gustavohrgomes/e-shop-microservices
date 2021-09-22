@@ -1,18 +1,14 @@
 using Common.Logging;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Polly;
 using Shopping.Aggregator.Services;
 using Shopping.Aggregator.Services.Interfaces;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace Shopping.Aggregator
 {
@@ -30,17 +26,19 @@ namespace Shopping.Aggregator
         {
             services.AddTransient<LoggingDelegatingHandler>();
 
-            services.AddHttpClient<ICatalogService, CatalogService>(c => 
+            services.AddHttpClient<ICatalogService, CatalogService>(c =>
                 c.BaseAddress = new Uri(Configuration["ApiSettings:CatalogUrl"]))
                 .AddHttpMessageHandler<LoggingDelegatingHandler>();
 
             services.AddHttpClient<IBasketService, BasketService>(c =>
                 c.BaseAddress = new Uri(Configuration["ApiSettings:BasketUrl"]))
-                .AddHttpMessageHandler<LoggingDelegatingHandler>(); ;
+                .AddHttpMessageHandler<LoggingDelegatingHandler>()
+                .AddTransientHttpErrorPolicy(policy =>
+                    policy.WaitAndRetryAsync(3, _ => TimeSpan.FromSeconds(2)));
 
             services.AddHttpClient<IOrderService, OrderService>(c =>
                 c.BaseAddress = new Uri(Configuration["ApiSettings:OrderingUrl"]))
-                .AddHttpMessageHandler<LoggingDelegatingHandler>(); ;
+                .AddHttpMessageHandler<LoggingDelegatingHandler>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
